@@ -1,0 +1,122 @@
+@import 'body';
+@import 'typo';
+@import 'banniere';
+header {
+    @include banniere;
+    display: flex;
+    justify-content: center;
+    height: 11vh;
+    h1 {
+    @include typo-titre;
+    background-color: white;
+    display: inline-block;
+    padding:0 10px;
+    }
+}
+article{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2% auto;
+    width: 100%;
+    // padding:0% 10px; 
+    .description{
+        width: 40%;
+        text-align: justify;
+        filter: drop-shadow(16px 16px 10px rgb(205, 221, 213));
+        h2{
+            @include typo-special;
+        }
+        p{
+            @include typo-text;
+        }
+    }
+}
+.slider{
+    width: 500px;
+    height: 260px;
+    overflow: hidden;
+    // filter: drop-shadow(16px 16px 10px rgb(205, 221, 213));
+    .slides{
+        display: flex;
+        animation: glisse 10s infinite;
+    }
+    @keyframes glisse {
+        0% {
+            transform: translateX(0);
+        }
+        10% {
+            transform: translateX(0);
+        }
+        
+        33% {
+            transform: translateX(-500px);
+        }
+        43% {
+            transform: translateX(-500px);
+        }
+        66% {
+            transform: translateX(-1000px);
+        }
+        76% {
+            transform: translateX(-1000px);
+        }
+        100% {
+            transform: translateX(0);
+        }
+}
+
+}
+@media all and (max-width: 1024px){
+    .slider{
+        width: 380px; 
+    }
+    .description{
+        width: 44%;
+        text-align: justify;
+    }
+}
+
+@media all and (max-width: 768px){
+    header{
+        width: 100%;
+        height: 9vh;
+        h1{
+            font-size: 28px;
+        }
+    }
+    article{
+        display: flex;
+        flex-direction: column;
+        .slider{
+            width: 500px;
+        }
+        .description{
+            width: 95%;
+            & h2, p{
+                font-size: 25px;
+            }
+        }
+      
+    }
+}
+@media screen and (max-width: 425px){
+    header{
+        h1{
+            font-size: 28px;
+        }
+    }
+    article{
+        width: 100%;
+        .slider{
+            width: 300px;
+        }
+        .description{
+            width: 100%;
+            & h2, p{
+                font-size: 28px;
+            }
+        }
+    }
+   
+}
